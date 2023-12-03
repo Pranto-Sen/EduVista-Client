@@ -25,6 +25,14 @@ const Register = () => {
     console.log(name, email, password, photourl);
     setRegisterError("");
     setRegisterSuccess("");
+    const n = 8; // Replace with your desired number of digits
+
+    const min = Math.pow(10, n - 1);
+    const max = Math.pow(10, n) - 1;
+
+    const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    
 
     if (password.length < 6) {
       console.log("passssssss");
@@ -73,6 +81,9 @@ const Register = () => {
         const userInfo = {
           name: result.user.displayName,
           email: result.user.email,
+          photo: result.user.photoURL,
+          phone: randomNum,
+          role: "Student",
         };
         console.log(userInfo);
         axiosPublic.post("/users", userInfo).then((res) => {
@@ -100,6 +111,9 @@ const Register = () => {
         const userInfo = {
           name: result.user.displayName,
           email: result.user.email,
+          photo: result.user.photoURL,
+          phone: randomNum,
+          role: "Student"
         };
         console.log(userInfo);
         axiosPublic.post("/users", userInfo).then((res) => {

@@ -86,7 +86,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/availableFood"
+                to="/allClass"
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "text-[#FF444A]" : ""
                 }

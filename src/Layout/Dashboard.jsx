@@ -7,12 +7,15 @@ import {
   FaCalendar,
   FaEnvelope,
   FaHome,
+  FaRegListAlt,
   FaList,
   FaSearch,
   FaShoppingCart,
+  FaPlusSquare,
   FaClipboardList,
   FaUsers,
   FaUtensils,
+  FaUserPlus,
 } from "react-icons/fa";
 import useAdmin from "../../hooks/useAdmin";
 import useTeacher from "../../hooks/useTeacher";
@@ -40,7 +43,13 @@ const Dashboard = () => {
                 <li>
                   <NavLink to="/dashboard/users">
                     <FaUsers></FaUsers>
-                    All Users
+                    Users
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/allClass">
+                    <FaList></FaList>
+                    All classes
                   </NavLink>
                 </li>
               </>
@@ -49,19 +58,25 @@ const Dashboard = () => {
             {isTeacher && (
               <>
                 <li>
-                  <NavLink to="/dashboard/userHome">
-                    <FaHome></FaHome>
-                    User Home
+                  <NavLink to="/dashboard/addClass">
+                    <FaPlusSquare />
+                    Add Class
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/history">
-                    <FaCalendar></FaCalendar>
-                    Not History
+                  <NavLink to="/dashboard/myClass">
+                    <FaRegListAlt />
+                    My Class
                   </NavLink>
                 </li>
               </>
             )}
+            <li>
+              <NavLink to="/dashboard/profile">
+                <FaUserPlus></FaUserPlus>
+                Profile
+              </NavLink>
+            </li>
 
             {/* {teacher && teacher.role === "Teacher" && (
               <>

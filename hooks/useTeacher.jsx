@@ -43,7 +43,7 @@ const useTeacher = () => {
     queryFn: async () => {
       console.log("asking or checking is teacher", user);
       const res = await axiosSecure.get(`teacher/${user.email}`);
-      // console.log(res.data);
+     console.log(user.email);
       return res.data?.teacher;
     },
   });

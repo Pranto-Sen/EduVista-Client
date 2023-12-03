@@ -16,7 +16,7 @@ const TeacherRequest = () => {
   
   const handleAprove = (item) => {
     console.log("aprove", item._id);
-    axiosSecure.patch(`/admin/reqAccept/${item._id}`).then((res) => {
+    axiosSecure.patch(`/admin/reqAccept/${item.email}`).then((res) => {
       console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();
