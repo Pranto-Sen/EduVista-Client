@@ -1,0 +1,10 @@
+.main-slide{
+    padding-top: 10px;
+}
+.carousel .slider-wrapper{
+    height: 600px;
+}
+.carousel .thumb{
+    width:5%;
+    height: 50px;
+}
