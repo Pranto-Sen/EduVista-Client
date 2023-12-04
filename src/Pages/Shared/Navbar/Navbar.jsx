@@ -1,26 +1,27 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../../Providers/AuthProvider";
-// import { AuthContext } from "../../Providers/AuthProvider";
-// import Dashboard from './../../../Layout/Dashboard';
 
 const Navbar = () => {
   const { user, logOut, isRegister } = useContext(AuthContext);
-   
+   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleSignOut = () => {
     logOut().then().catch();
   };
+    const toggleProfileDropdown = () => {
+      setProfileDropdownOpen(!profileDropdownOpen);
+    };
 
   return (
     <nav className="bg-gray-100 fixed w-full z-20 top-0 left-0 border-b shadow-md">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="flex items-center">
           <img
-            src="https://i.ibb.co/Qvjm3Y9/logo.png"
+            src="https://i.ibb.co/nzpvvMt/Screenshots-3386-removebg-preview.png"
             className="h-8 mr-3"
-            alt="Flowbite Logo"
+            alt="Logo"
           />
           <span className="self-center text-4xl font-bold whitespace-nowrap">
             EduVista
@@ -79,7 +80,6 @@ const Navbar = () => {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "text-[#FF444A]" : ""
                 }
-                // className="text-gray-700 hover:text-[#FF444A]"
               >
                 Home
               </NavLink>
@@ -90,7 +90,6 @@ const Navbar = () => {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "text-[#FF444A]" : ""
                 }
-                // className="text-gray-700 hover:text-[#FF444A] "
               >
                 All Class
               </NavLink>
@@ -101,38 +100,100 @@ const Navbar = () => {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "text-[#FF444A]" : ""
                 }
-                // className="text-gray-700 hover:text-[#FF444A]"
               >
                 Teach on EduVista
               </NavLink>
             </li>
 
-            {/*  <li>
-              <NavLink
-                to="/foodRequest"
-                className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "text-[#FF444A]" : ""
-                }
-                // className="text-gray-700 hover:text-[#FF444A]"
-              >
-                Food Request
-              </NavLink>
-            </li> */}
-
             {user ? (
-              <div className="flex">
-                 <li className="pr-4">
-                  <NavLink
-                    to="/dashboard"
-                    className={({ isActive, isPending }) =>
-                      isPending ? "pending" : isActive ? "text-[#FF444A]" : ""
+              // <div className="flex">
+              //    <li className="pr-4">
+              //     <NavLink
+              //       to="/dashboard"
+              //       className={({ isActive, isPending }) =>
+              //         isPending ? "pending" : isActive ? "text-[#FF444A]" : ""
+              //       }
+
+              //     >
+              //       Dashboard
+              //     </NavLink>
+              //   </li>
+              //   <button onClick={handleSignOut}>Logout</button>
+              // </div>
+              // <div className="flex items-center md:ml-4">
+              //   <div className="relative group">
+              //     <img
+              //       src={
+              //         user.photoURL
+              //           ? user.photoURL
+              //           : "https://i.ibb.co/5GGZtst/360-F-483909569-OI4-LKNe-Fg-Hwvv-Vju60fej-Ld9gj43d-Icd.jpg"
+              //       }
+              //       className="w-8 h-8 rounded-full cursor-pointer"
+              //       alt={user.displayName}
+              //     />
+
+              //     {/* Dropdown menu */}
+              //     <ul className="absolute hidden mt-2 space-y-2 bg-white text-gray-800 rounded-md shadow-md group-hover:block">
+              //       <li className="py-2 px-4 font-medium">
+              //         {user.displayName}
+              //       </li>
+              //       <li>
+              //         <NavLink
+              //           to="/dashboard"
+              //           className="block px-4 py-2 hover:bg-gray-200"
+              //         >
+              //           Dashboard
+              //         </NavLink>
+              //       </li>
+              //       <li>
+              //         <button
+              //           onClick={handleSignOut}
+              //           className="block px-4 py-2 hover:bg-gray-200 w-full text-left"
+              //         >
+              //           Logout
+              //         </button>
+              //       </li>
+              //     </ul>
+              //   </div>
+              // </div>
+              <div className="flex items-center md:ml-4">
+                <div className="relative group">
+                  <img
+                    src={
+                      user.photoURL
+                        ? user.photoURL
+                        : "https://i.ibb.co/5GGZtst/360-F-483909569-OI4-LKNe-Fg-Hwvv-Vju60fej-Ld9gj43d-Icd.jpg"
                     }
-                    // className="text-gray-700 hover:text-[#FF444A]"
-                  >
-                    Dashboard
-                  </NavLink>
-                </li> 
-                <button onClick={handleSignOut}>Logout</button>
+                    className="w-8 h-8 rounded-full cursor-pointer"
+                    alt={user.displayName}
+                    onClick={toggleProfileDropdown}
+                  />
+
+                  {/* Dropdown menu */}
+                  {profileDropdownOpen && (
+                    <ul className="absolute mt-2 space-y-2 bg-white text-gray-800 rounded-md shadow-md">
+                      <li className="py-2 px-4 font-medium">
+                        {user.displayName}
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/dashboard"
+                          className="block px-4 py-2 hover:bg-gray-200"
+                        >
+                          Dashboard
+                        </NavLink>
+                      </li>
+                      <li>
+                        <button
+                          onClick={handleSignOut}
+                          className="block px-4 py-2 hover:bg-gray-200 w-full text-left"
+                        >
+                          Logout
+                        </button>
+                      </li>
+                    </ul>
+                  )}
+                </div>
               </div>
             ) : (
               <div className="flex ">
@@ -142,7 +203,6 @@ const Navbar = () => {
                     className={({ isActive, isPending }) =>
                       isPending ? "pending" : isActive ? "text-[#FF444A]" : ""
                     }
-                    // className="text-gray-700 hover:text-[#FF444A]"
                   >
                     Sign In
                   </NavLink>
@@ -153,14 +213,13 @@ const Navbar = () => {
                     className={({ isActive, isPending }) =>
                       isPending ? "pending" : isActive ? "text-[#FF444A]" : ""
                     }
-                    // className="text-gray-700 hover:text-[#FF444A]"
                   >
                     Register
                   </NavLink>
                 </li>
               </div>
             )}
-            {user && (
+            {/* {user && (
               <div className="flex items-center">
                 <img
                   src={
@@ -173,7 +232,7 @@ const Navbar = () => {
                 />
                 <p>{user.displayName}</p>
               </div>
-            )}
+            )} */}
           </ul>
         </div>
       </div>

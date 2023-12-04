@@ -23,7 +23,7 @@ const User = () => {
 
   const handleMakeAdmin = (item) => {
     console.log("make ad", item._id);
-    axiosSecure.patch(`/users/admin/${item._id}`).then((res) => {
+    axiosSecure.patch(`/users/admin/${item.email}`).then((res) => {
       console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();

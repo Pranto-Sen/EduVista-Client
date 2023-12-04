@@ -61,37 +61,8 @@ const AuthProvider = ({ children }) => {
         localStorage.removeItem("access-token");
       }
 
-      // if (currentUser) {
-      //   const userInfo = { email: currentUser.email };
-      //   axiousPublic.post('/jwt', userInfo)
-      //     .then(res => {
-      //       if (res.data.token) {
-      //       localStorage.setItem('access-token', res.data.token);
-      //     }
-      //   })
-      // } else {
-      //   localStorage.removeItem('access-token');
-      // }
       setLoading(false);
 
-      //  if (currentUser) {
-      //    axios
-      //      .post("http://localhost:5000/jwt", loggedUser, {
-      //        withCredentials: true,
-      //      })
-      //      .then((res) => {
-      //        console.log("token response", res.data);
-      //      });
-      //  }
-      //  else {
-      //    axios
-      //      .post("http://localhost:5000/logout", loggedUser, {
-      //        withCredentials: true,
-      //      })
-      //      .then((res) => {
-      //        console.log(res.data);
-      //      });
-      //  }
     });
     return () => {
       unSubscribe();

@@ -4,28 +4,17 @@ import { Carousel } from "react-responsive-carousel";
 import "./slide.css"
 const Banner = () => {
     return (
-      
-        <Carousel className='main-slide'>
-          <div>
-            <img
-              src="https://i.ibb.co/7GvcgNr/istockphoto-1383952487-1024x1024.jpg"
-              
-            />
-          </div>
-          <div>
-            <img
-              src="https://i.ibb.co/RB0vTZH/istockphoto-154354465-1024x1024.jpg"
-             
-            />
-          </div>
-          <div>
-            <img
-              src="https://i.ibb.co/MCZjXTg/istockphoto-1161721315-1024x1024.jpg"
-             
-            />
-          </div>
-        </Carousel>
-    
+      <Carousel className="main-slide">
+        <div>
+          <img src="https://i.ibb.co/WyDJc1m/e-learing-distance-education-icons-interface.jpg" />
+        </div>
+        <div>
+          <img src="https://i.ibb.co/XDWHgR7/learning-education-ideas-insight-intelligence-study-concept.jpg" />
+        </div>
+        <div>
+          <img src="https://i.ibb.co/TWqWc3x/science-dna-research-development-human.jpg" />
+        </div>
+      </Carousel>
     );
 };
 

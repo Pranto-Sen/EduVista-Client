@@ -50,10 +50,10 @@ const AllClasses = () => {
                 <div className="flex justify-center mt-4">
               
                   <Link
-                    to={`/dashboard/my-class/${classItem._id}`}
+                    to={`/class/${classItem._id}`}
                     className="bg-blue-500 text-white px-3 py-1 rounded-md"
                   >
-                    See Details
+                    Enroll
                   </Link>
                 </div>
               </div>

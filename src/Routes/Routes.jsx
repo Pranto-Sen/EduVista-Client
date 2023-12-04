@@ -17,6 +17,9 @@ import DetailsClass from "../Pages/Dashboard/MyClass/DetailsClass";
 import AllClass from "../Pages/Dashboard/AllClass/AllClass";
 import Class from "../Pages/Dashboard/AllClass/Class";
 import Proile from "../Pages/Dashboard/Profile/Proile";
+import ClassDetails from "../Pages/Home/AllClasses/ClassDetails";
+import Payment from "../Pages/Home/AllClasses/Payment";
+import EnrollClass from "../Pages/Dashboard/EnrollClass/EnrollClass";
 // import Dashboard from "../Layout/Dashboard";
 // import MyClass from './../Pages/Dashboard/MyClass/MyClass';
 export const router = createBrowserRouter([
@@ -37,6 +40,17 @@ export const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
+        path: "/class/:id",
+        element: <ClassDetails></ClassDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/class/${params.id}`),
+      },
+      {
+        path: "/payment",
+        element: <Payment></Payment>,
+      },
+
+      {
         path: "/applyTeacher",
         element: (
           <PrivateRoute>
@@ -44,13 +58,12 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-        {
+      {
         path: "/allClass",
         element: (
           <PrivateRoute>
             <AllClasses></AllClasses>
           </PrivateRoute>
-          
         ),
       },
     ],
@@ -78,6 +91,10 @@ export const router = createBrowserRouter([
       {
         path: "myClass", // Relative path to the parent "/dashboard"
         element: <MyClass></MyClass>,
+      },
+      {
+        path: "myEnrollClass", // Relative path to the parent "/dashboard"
+        element: <EnrollClass></EnrollClass>,
       },
       {
         path: "update/:id",
