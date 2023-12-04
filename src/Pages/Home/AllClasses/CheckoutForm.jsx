@@ -27,7 +27,7 @@ const CheckoutForm = () => {
           setClientSecret(res.data.clientSecret);
         });
     }
-  }, [axiosSecure, totalPrice]);
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

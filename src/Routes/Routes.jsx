@@ -99,8 +99,7 @@ export const router = createBrowserRouter([
       {
         path: "update/:id",
         element: <UpdateClass></UpdateClass>,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/update/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
       },
       {
         path: "my-class/:id",
@@ -120,52 +119,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-
-  // {
-  //   path: 'dashboard',
-  //   element: <Dashboard></Dashboard>,
-  //   children: [
-  //     // normal user routes
-  //     // {
-  //     //   path: 'userHome',
-  //     //   element: <UserHome></UserHome>
-  //     // },
-  //     // {
-  //     //   path: 'cart',
-  //     //   element: <Cart></Cart>
-  //     // },
-  //     // {
-  //     //   path: 'payment',
-  //     //   element: <Payment></Payment>
-  //     // },
-  //     // {
-  //     //   path: 'paymentHistory',
-  //     //   element: <PaymentHistory></PaymentHistory>
-  //     // },
-
-  //     // admin only routes
-  //     // {
-  //     //   path: 'adminHome',
-  //     //   element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
-  //     // },
-  //     // {
-  //     //   path: 'addItems',
-  //     //   element: <AdminRoute><AddItems></AddItems></AdminRoute>
-  //     // },
-  //     // {
-  //     //   path: 'manageItems',
-  //     //   element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
-  //     // },
-  //     // {
-  //     //   path: 'updateItem/:id',
-  //     //   element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
-  //     //   loader: ({params}) => fetch(`http://localhost:5000/menu/${params.id}`)
-  //     // },
-  //     // {
-  //     //   path: 'users',
-  //     //   element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-  //     // }
-
-  //   ]
-  // }
 ]);

@@ -7,6 +7,8 @@ const Navbar = () => {
    const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+    
+
   const handleSignOut = () => {
     logOut().then().catch();
   };

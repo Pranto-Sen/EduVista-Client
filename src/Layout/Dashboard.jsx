@@ -1,32 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 import {
-  FaAd,
-  FaBook,
-  FaCalendar,
-  FaEnvelope,
   FaHome,
   FaRegListAlt,
   FaList,
-  FaSearch,
-  FaShoppingCart,
   FaPlusSquare,
   FaClipboardList,
   FaUsers,
-  FaUtensils,
   FaUserPlus,
 } from "react-icons/fa";
 import useAdmin from "../../hooks/useAdmin";
 import useTeacher from "../../hooks/useTeacher";
-import useStudent from "../../hooks/useStudent";
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
   const [isTeacher] = useTeacher();
-  const [isStudent, isStudentLoading] = useStudent();
-
-   console.log(isAdmin);
-  console.log(isStudent);
+  
   return (
     <div>
       <div className="flex">
@@ -56,8 +44,6 @@ const Dashboard = () => {
                 </li>
               </>
             )}
-              
-  
 
             {isTeacher && (
               <>
@@ -75,18 +61,18 @@ const Dashboard = () => {
                 </li>
               </>
             )}
-            {isStudent && (
+
+            {!isAdmin && !isTeacher && (
               <>
                 <li>
-                  <NavLink to="/dashboard/myEnrollClass">
+                  <NavLink to="myEnrollClass">
                     <FaPlusSquare />
-                    My enroll Class
+                    Enroll Class
                   </NavLink>
                 </li>
-              
               </>
             )}
-
+            
             <li>
               <NavLink to="/dashboard/profile">
                 <FaUserPlus></FaUserPlus>
