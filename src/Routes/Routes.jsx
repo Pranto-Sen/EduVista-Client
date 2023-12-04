@@ -43,7 +43,9 @@ export const router = createBrowserRouter([
         path: "/class/:id",
         element: <ClassDetails></ClassDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/class/${params.id}`),
+          fetch(
+            `https://student-and-class-management-server-mu.vercel.app/class/${params.id}`
+          ),
       },
       {
         path: "/payment",
@@ -99,7 +101,10 @@ export const router = createBrowserRouter([
       {
         path: "update/:id",
         element: <UpdateClass></UpdateClass>,
-        loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://student-and-class-management-server-mu.vercel.app/update/${params.id}`
+          ),
       },
       {
         path: "my-class/:id",
