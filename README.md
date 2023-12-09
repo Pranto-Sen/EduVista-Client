@@ -9,4 +9,4 @@ Develop and structure course content, including lectures, quizzes, and assignmen
 ## Admin Role:
 View and manage user accounts, including students and teachers. Handle user account-related requests and issues. Review and Approve Courses. Review courses created by teachers before they are published. Ensure courses meet quality standards and align with the platform's guidelines. Respond to user inquiries, complaints, and technical issues. Provide support and resolve disputes when necessary.
 
-# Technology use: React js, Expressjs, Tailwind, MongoDB
+# Technology use: ``` React js, Expressjs, Tailwind, MongoDB ```
